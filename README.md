@@ -61,6 +61,13 @@ Train:
 
 Replace the checkpoint dir with the output from the training. To use your own data, change the `eval.py` script to load your data.
 
+## Visualizing Result in TensorBoard
+
+```bash
+tensorboard --logdir /PATH_TO_CODE/runs/1449760558/summaries/
+```
+Replace the checkpoint dir with the output from the training.
+
 
 ## References
 

@@ -29,7 +29,8 @@ print("")
 
 # Load data. Load your own data here
 print("Loading data...")
-x_test, y_test, vocabulary, vocabulary_inv = data_helpers.load_data()
+# x_test, y_test, vocabulary, vocabulary_inv = data_helpers.load_data()
+x_test, y_test, vocabulary, vocabulary_inv = data_helpers.load_tweet_data()
 y_test = np.argmax(y_test, axis=1)
 print("Vocabulary size: {:d}".format(len(vocabulary)))
 print("Test set size {:d}".format(len(y_test)))
@@ -70,5 +71,10 @@ with graph.as_default():
 
 # Print accuracy
 correct_predictions = float(sum(all_predictions == y_test))
+for i in range(len(x_test)):
+    print "real: " + str(y_test[i]) + " predict: " + str(all_predictions[i]) + " ",
+    for j in range(len(x_test[i])):
+        print vocabulary_inv[x_test[i][j]],
+    print
 print("Total number of test examples: {}".format(len(y_test)))
 print("Accuracy: {:g}".format(correct_predictions/float(len(y_test))))
